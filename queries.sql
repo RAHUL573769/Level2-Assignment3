@@ -51,4 +51,4 @@ FROM
 GROUP BY
   vehicle_id
 HAVING
-  COUNT(vehicle_id) > 2;..
+  COUNT(vehicle_id) > 2;
