@@ -91,23 +91,70 @@ Retrieve booking information along with:
 
 **Concepts used**: INNER JOIN
 
+
+SELECT
+  booking_id,
+  name AS user_name,
+  vehicle_name,
+  start_date,
+  end_date,
+  status
+FROM
+  bookings AS b
+  JOIN users AS u USING (user_id)
+  JOIN vehicles AS v USING (vehicle_id);
+
 ### Query 2: EXISTS
 
 Find all vehicles that have never been booked.
 
 **Concepts used**: NOT EXISTS
 
+SELECT
+  *
+FROM
+  vehicles
+WHERE
+  NOT EXISTS (
+    SELECT
+      1
+    FROM
+      bookings
+    WHERE
+      vehicles.vehicle_id = bookings.vehicle_id
+  );
+
+
 ### Query 3: WHERE
 
 Retrieve all available vehicles of a specific type (e.g. cars).
+SELECT * FROM vehicles WHERE type='car';
+
+
 
 **Concepts used**: SELECT, WHERE
 
 ### Query 4: GROUP BY and HAVING
 
+
+SELECT
+  v.vehicle_name,
+  COUNT(v.vehicle_id) AS total_bookings
+FROM
+  vehicles AS v
+  JOIN bookings USING (vehicle_id)
+GROUP BY
+  vehicle_id
+HAVING
+  COUNT(vehicle_id) > 2;
+
 Find the total number of bookings for each vehicle and display only those vehicles that have more than 2 bookings.
 
+
+
 **Concepts used**: GROUP BY, HAVING, COUNT
+
+
 
 ---
 
