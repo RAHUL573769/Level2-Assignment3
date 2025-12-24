@@ -46,7 +46,7 @@ WHERE
 
 
 ```
-Here select command is used to select  all columns from the vehicles table and then NOT EXISTS command is used to select  Show vehicles where NO matching booking exists
+Here  NOT EXISTS command is used to select vehicles where NO matching booking exists  and then finally, select command is used to select  all columns from the vehicles table and then
 ```
 
 #   ------------------  Question -3:-----------------
@@ -86,7 +86,7 @@ HAVING
 
 
 ```
-In this query Group by and having clause are used to count Vehicles booked more than 2 times
+In this query ,Group by and having clause are used to count Vehicles booked more than 2 times
 ```
 
 
